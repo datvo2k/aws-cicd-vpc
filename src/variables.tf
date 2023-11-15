@@ -1,4 +1,5 @@
 # Common Variables
+
 variable "tags" {
   default     = {}
   type        = map(string)
@@ -10,10 +11,14 @@ variable "region" {
   description = "Region of the VPC"
 }
 
+# VPC Variables
+
 variable "vpc_cidr_block" {
   type        = string
   description = "CIDR block for the VPC"
 }
+
+# Subnet Varaibles
 
 variable "public_subnet_cidr_blocks" {
   type        = list(any)
