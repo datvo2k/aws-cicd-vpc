@@ -21,25 +21,25 @@ variable "public_subnet_cidr_blocks" {
 }
 
 variable "app_subnet_cidr_blocks" {
-  default     = 0
+  default     = []
   type        = list(any)
   description = "List of application subnet CIDR blocks"
 }
 
 variable "db_subnet_cidr_blocks" {
-  default     = 0
+  default     = []
   type        = list(any)
   description = "List of Database subnet CIDR blocks"
 }
 
 variable "management_subnet_cidr_blocks" {
-  default     = 0
+  default     = []
   type        = list(any)
   description = "List of management subnet CIDR blocks"
 }
 
 variable "platform_subnet_cidr_blocks" {
-  default     = 0
+  default     = []
   type        = list(any)
   description = "List of platform subnet CIDR blocks"
 }
@@ -50,6 +50,7 @@ variable "availability_zones" {
 }
 
 variable "create_nat_gateway" {
+  default     = false
   type        = bool
   description = "whether to create a NAT gateway or not"
 }

@@ -19,60 +19,60 @@ resource "aws_subnet" "public" {
 
 resource "aws_route_table_association" "public" {
   count          = length(aws_subnet.public)
-  subnet_id      = aws_subnet.public[count.index].id
+  subnet_id      = aws_subnet.public[*].id
   route_table_id = aws_route_table.public.id
 }
 
 resource "aws_subnet" "app" {
-	count = length(var.app_subnet_cidr_blocks)
-	vpc_id = aws_vpc.main.id
-	cidr_block = var.app_subnet_cidr_blocks[count.index]
-	availability_zone = var.availability_zones[count.index]
+  count             = length(var.app_subnet_cidr_blocks)
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.app_subnet_cidr_blocks[count.index]
+  availability_zone = var.availability_zones[count.index]
 
-	tags = merge(
-		{
-			Name = "${var.environment}- ${var.application}-app-subnet-${count.index}",
-			Environemnt = var.environment,
-			Owner = var.owner,
-			CostCenter = var.cost_center,
-			Application = var.application
-		},
-		var.tags
-	)
+  tags = merge(
+    {
+      Name        = "${var.environment}- ${var.application}-app-subnet-${count.index}",
+      Environemnt = var.environment,
+      Owner       = var.owner,
+      CostCenter  = var.cost_center,
+      Application = var.application
+    },
+    var.tags
+  )
 }
 
 resource "aws_route_table_association" "app" {
-	count = length(aws_subnet.app)
-	subnet_id = aws_subnet.app[count_index].id
-	route_table_id = aws_route_table.app.id
+  count          = length(aws_subnet.app)
+  subnet_id      = aws_subnet.app[*].id
+  route_table_id = aws_route_table.app.id
 }
 
 resource "aws_subnet" "db" {
-	count = length(var.db_subnet_cidr_blocks)
-	vpc_id = aws_vpc.main.id
-	cidr_block = var.db_subnet_cidr_blocks[count.index]
-	availability_zone = var.availability_zones[count.index]
+  count             = length(var.db_subnet_cidr_blocks)
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = var.db_subnet_cidr_blocks[count.index]
+  availability_zone = var.availability_zones[count.index]
 
-	tags = merge (
-		{
-			Name        = "${var.environment}-${var.application}-db-subnet-${count.index}",
+  tags = merge(
+    {
+      Name        = "${var.environment}-${var.application}-db-subnet-${count.index}",
       Environment = var.environment,
       Owner       = var.owner,
       CostCenter  = var.cost_center,
       Application = var.application
-		},
-		var.tags
-	)
+    },
+    var.tags
+  )
 }
 
 resource "aws_route_table_association" "db" {
-	count = length(aws_subnet.db)
-	subnet_id = aws_subnet.db[count.index].id
-	route_table_id = aws_route_table.db.id
+  count          = length(aws_subnet.db)
+  subnet_id      = aws_subnet.db[*].id
+  route_table_id = aws_route_table.db.id
 }
 
 resource "aws_subnet" "management" {
-	count             = length(var.management_subnet_cidr_blocks)
+  count             = length(var.management_subnet_cidr_blocks)
   vpc_id            = aws_vpc.main.id
   cidr_block        = var.management_subnet_cidr_blocks[count.index]
   availability_zone = var.availability_zones[count.index]
@@ -91,7 +91,7 @@ resource "aws_subnet" "management" {
 
 resource "aws_route_table_association" "management" {
   count          = length(aws_subnet.management)
-  subnet_id      = aws_subnet.management[count.index].id
+  subnet_id      = aws_subnet.management[*].id
   route_table_id = aws_route_table.management.id
 }
 
@@ -115,6 +115,6 @@ resource "aws_subnet" "platform" {
 
 resource "aws_route_table_association" "platform" {
   count          = length(aws_subnet.platform)
-  subnet_id      = aws_subnet.platform[count.index].id
+  subnet_id      = aws_subnet.platform[*].id
   route_table_id = aws_route_table.platform.id
 }

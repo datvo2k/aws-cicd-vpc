@@ -1,10 +1,3 @@
-terraform {
-  backend "s3" {}
-}
-provider "aws" {
-  region = var.region
-}
-
 module "vpc" {
   source = "../src/modules/vpc"
 
@@ -29,12 +22,12 @@ module "vpc" {
   ingress_public_nacl_protocol   = var.ingress_public_nacl_protocol
   ingress_public_nacl_cidr_block = var.ingress_public_nacl_cidr_block
 
-	egress_public_nacl_rule_no         = var.egress_public_nacl_rule_no
-  egress_public_nacl_action          = var.egress_public_nacl_action
-  egress_public_nacl_from_port       = var.egress_public_nacl_from_port
-  egress_public_nacl_to_port         = var.egress_public_nacl_to_port
-  egress_public_nacl_protocol        = var.egress_public_nacl_protocol
-  egress_public_nacl_cidr_block      = var.egress_public_nacl_cidr_block
+  egress_public_nacl_rule_no    = var.egress_public_nacl_rule_no
+  egress_public_nacl_action     = var.egress_public_nacl_action
+  egress_public_nacl_from_port  = var.egress_public_nacl_from_port
+  egress_public_nacl_to_port    = var.egress_public_nacl_to_port
+  egress_public_nacl_protocol   = var.egress_public_nacl_protocol
+  egress_public_nacl_cidr_block = var.egress_public_nacl_cidr_block
 
   owner       = var.owner
   environment = var.environment
