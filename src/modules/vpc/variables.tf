@@ -21,25 +21,25 @@ variable "public_subnet_cidr_blocks" {
 }
 
 variable "app_subnet_cidr_blocks" {
-  default = null
+  default     = 0
   type        = list(any)
   description = "List of application subnet CIDR blocks"
 }
 
 variable "db_subnet_cidr_blocks" {
-  default = null
+  default     = 0
   type        = list(any)
   description = "List of Database subnet CIDR blocks"
 }
 
 variable "management_subnet_cidr_blocks" {
-  default = null
+  default     = 0
   type        = list(any)
   description = "List of management subnet CIDR blocks"
 }
 
 variable "platform_subnet_cidr_blocks" {
-  default = null
+  default     = 0
   type        = list(any)
   description = "List of platform subnet CIDR blocks"
 }
@@ -105,16 +105,19 @@ variable "map_public_ip_on_launch" {
 }
 
 variable "create_s3_endpoint" {
+  default     = false
   type        = bool
   description = "whether to create s3 endpoint or not"
 }
 
 variable "create_secrets_manager_endpoint" {
+  default     = false
   type        = bool
   description = "whether to create secrets-manager endpoint or not"
 }
 
 variable "create_cloudwatch_logs_endpoint" {
+  default     = false
   type        = bool
   description = "whether to create cloudwatch logs endpoint or not"
 }
@@ -180,259 +183,289 @@ variable "egress_public_nacl_cidr_block" {
 }
 
 variable "ingress_app_nacl_rule_no" {
-  default = null
+  default     = null
   type        = list(number)
   description = "List of app nacl ingress rule no"
 }
 
 variable "ingress_app_nacl_action" {
-  default = null
+  default     = null
   type        = list(string)
   description = "List of app nacl ingress action "
 }
 
 variable "ingress_app_nacl_from_port" {
-  default = null
+  default     = null
   type        = list(number)
   description = "List of app nacl ingress from port "
 }
 
 variable "ingress_app_nacl_to_port" {
-  default = null
+  default     = null
   type        = list(number)
   description = "List of app nacl ingress to port "
 }
 
 variable "ingress_app_nacl_protocol" {
-  default = null
+  default     = null
   type        = list(string)
   description = "List of app nacl ingress protocol "
 }
 
 variable "ingress_app_nacl_cidr_block" {
-  default = null
+  default     = null
   type        = list(string)
   description = "List of app nacl ingress cidr block "
 }
 
 variable "egress_app_nacl_rule_no" {
-  default = null
+  default     = null
   type        = list(number)
   description = "List of app nacl egress rule no"
 }
 
 variable "egress_app_nacl_action" {
-  default = null
+  default     = null
   type        = list(string)
   description = "List of app nacl egress action "
 }
 
 variable "egress_app_nacl_from_port" {
-  default = null
+  default     = null
   type        = list(number)
   description = "List of app nacl egress from port "
 }
 
 variable "egress_app_nacl_to_port" {
-  default = null
+  default     = null
   type        = list(number)
   description = "List of app nacl egress to port "
 }
 
 variable "egress_app_nacl_protocol" {
-  default = null
+  default     = null
   type        = list(string)
   description = "List of app nacl egress protocol "
 }
 
 variable "egress_app_nacl_cidr_block" {
-  default = null
+  default     = null
   type        = list(string)
   description = "List of app nacl egress cidr block "
 }
 
 variable "ingress_db_nacl_rule_no" {
-  default = null
+  default     = null
   type        = list(number)
   description = "List of db nacl ingress rule no"
 }
 
 variable "ingress_db_nacl_action" {
-  default = null
+  default     = null
   type        = list(string)
   description = "List of db nacl ingress action "
 }
 
 variable "ingress_db_nacl_from_port" {
-  default = null
+  default     = null
   type        = list(number)
   description = "List of db nacl ingress from port "
 }
 
 variable "ingress_db_nacl_to_port" {
-  default = null
+  default     = null
   type        = list(number)
   description = "List of db nacl ingress to port "
 }
 
 variable "ingress_db_nacl_protocol" {
-  default = null
+  default     = null
   type        = list(string)
   description = "List of db nacl ingress protocol "
 }
 
 variable "ingress_db_nacl_cidr_block" {
-  default = null
+  default     = null
   type        = list(string)
   description = "List of db nacl ingress cidr block "
 }
 
 variable "egress_db_nacl_rule_no" {
+  default     = null
   type        = list(number)
   description = "List of db nacl egress rule no"
 }
 
 variable "egress_db_nacl_action" {
+  default     = null
   type        = list(string)
   description = "List of db nacl egress action "
 }
 
 variable "egress_db_nacl_from_port" {
+  default     = null
   type        = list(number)
   description = "List of db nacl egress from port "
 }
 
 variable "egress_db_nacl_to_port" {
+  default     = null
   type        = list(number)
   description = "List of db nacl egress to port "
 }
 
 variable "egress_db_nacl_protocol" {
+  default     = null
   type        = list(string)
   description = "List of db nacl egress protocol "
 }
 
 variable "egress_db_nacl_cidr_block" {
+  default     = null
   type        = list(string)
   description = "List of db nacl egress cidr block "
 }
 
 variable "ingress_management_nacl_rule_no" {
+  default     = null
   type        = list(number)
   description = "List of management nacl ingress rule no"
 }
 
 variable "ingress_management_nacl_action" {
+  default     = null
   type        = list(string)
   description = "List of management nacl ingress action "
 }
 
 variable "ingress_management_nacl_from_port" {
+  default     = null
   type        = list(number)
   description = "List of management nacl ingress from port "
 }
 
 variable "ingress_management_nacl_to_port" {
+  default     = null
   type        = list(number)
   description = "List of management nacl ingress to port "
 }
 
 variable "ingress_management_nacl_protocol" {
+  default     = null
   type        = list(string)
   description = "List of management nacl ingress protocol "
 }
 
 variable "ingress_management_nacl_cidr_block" {
+  default     = null
   type        = list(string)
   description = "List of management nacl ingress cidr block "
 }
 
 variable "egress_management_nacl_rule_no" {
+  default     = null
   type        = list(number)
   description = "List of management nacl egress rule no"
 }
 
 variable "egress_management_nacl_action" {
+  default     = null
   type        = list(string)
   description = "List of management nacl egress action "
 }
 
 variable "egress_management_nacl_from_port" {
+  default     = null
   type        = list(number)
   description = "List of management nacl egress from port "
 }
 
 variable "egress_management_nacl_to_port" {
+  default     = null
   type        = list(number)
   description = "List of management nacl egress to port "
 }
 
 variable "egress_management_nacl_protocol" {
+  default     = null
   type        = list(string)
   description = "List of management nacl egress protocol "
 }
 
 variable "egress_management_nacl_cidr_block" {
+  default     = null
   type        = list(string)
   description = "List of management nacl egress cidr block "
 }
 
 variable "ingress_platform_nacl_rule_no" {
+  default     = null
   type        = list(number)
   description = "List of platform nacl ingress rule no"
 }
 
 variable "ingress_platform_nacl_action" {
+  default     = null
   type        = list(string)
   description = "List of platform nacl ingress action "
 }
 
 variable "ingress_platform_nacl_from_port" {
+  default     = null
   type        = list(number)
   description = "List of platform nacl ingress from port "
 }
 
 variable "ingress_platform_nacl_to_port" {
+  default     = null
   type        = list(number)
   description = "List of platform nacl ingress to port "
 }
 
 variable "ingress_platform_nacl_protocol" {
+  default     = null
   type        = list(string)
   description = "List of platform nacl ingress protocol "
 }
 
 variable "ingress_platform_nacl_cidr_block" {
+  default     = null
   type        = list(string)
   description = "List of platform nacl ingress cidr block "
 }
 
 variable "egress_platform_nacl_rule_no" {
+  default     = null
   type        = list(number)
   description = "List of platform nacl egress rule no"
 }
 
 variable "egress_platform_nacl_action" {
+  default     = null
   type        = list(string)
   description = "List of platform nacl egress action "
 }
 
 variable "egress_platform_nacl_from_port" {
+  default     = null
   type        = list(number)
   description = "List of platform nacl egress from port "
 }
 
 variable "egress_platform_nacl_to_port" {
+  default     = null
   type        = list(number)
   description = "List of platform nacl egress to port "
 }
 
 variable "egress_platform_nacl_protocol" {
+  default     = null
   type        = list(string)
   description = "List of platform nacl egress protocol "
 }
 
 variable "egress_platform_nacl_cidr_block" {
+  default     = null
   type        = list(string)
   description = "List of platform nacl egress cidr block "
 }
