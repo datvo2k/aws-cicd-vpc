@@ -29,6 +29,20 @@ module "vpc" {
   egress_public_nacl_protocol   = var.egress_public_nacl_protocol
   egress_public_nacl_cidr_block = var.egress_public_nacl_cidr_block
 
+  ingress_app_nacl_rule_no    = var.ingress_app_nacl_rule_no
+  ingress_app_nacl_action     = var.ingress_app_nacl_action
+  ingress_app_nacl_from_port  = var.ingress_app_nacl_from_port
+  ingress_app_nacl_to_port    = var.ingress_app_nacl_to_port
+  ingress_app_nacl_protocol   = var.ingress_app_nacl_protocol
+  ingress_app_nacl_cidr_block = var.ingress_app_nacl_cidr_block
+
+  egress_app_nacl_rule_no    = var.egress_app_nacl_rule_no
+  egress_app_nacl_action     = var.egress_app_nacl_action
+  egress_app_nacl_from_port  = var.egress_app_nacl_from_port
+  egress_app_nacl_to_port    = var.egress_app_nacl_to_port
+  egress_app_nacl_protocol   = var.egress_app_nacl_protocol
+  egress_app_nacl_cidr_block = var.egress_app_nacl_cidr_block
+
   owner       = var.owner
   environment = var.environment
   cost_center = var.cost_center
