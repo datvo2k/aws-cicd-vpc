@@ -30,21 +30,6 @@ variable "app_subnet_cidr_blocks" {
   description = "List of application subnet CIDR blocks"
 }
 
-variable "db_subnet_cidr_blocks" {
-  type        = list(any)
-  description = "List of Database subnet CIDR blocks"
-}
-
-variable "management_subnet_cidr_blocks" {
-  type        = list(any)
-  description = "List of management subnet CIDR blocks"
-}
-
-variable "platform_subnet_cidr_blocks" {
-  type        = list(any)
-  description = "List of platform subnet CIDR blocks"
-}
-
 variable "availability_zones" {
   type        = list(any)
   description = "List of availability zones"
@@ -103,21 +88,6 @@ variable "destination_cidr_block" {
 variable "map_public_ip_on_launch" {
   type        = bool
   description = "whether to map public ip on launch or not"
-}
-
-variable "create_s3_endpoint" {
-  type        = bool
-  description = "whether to create s3 endpoint or not"
-}
-
-variable "create_secrets_manager_endpoint" {
-  type        = bool
-  description = "whether to create secrets-manager endpoint or not"
-}
-
-variable "create_cloudwatch_logs_endpoint" {
-  type        = bool
-  description = "whether to create cloudwatch logs endpoint or not"
 }
 
 variable "ingress_public_nacl_rule_no" {
@@ -238,64 +208,4 @@ variable "egress_app_nacl_protocol" {
 variable "egress_app_nacl_cidr_block" {
   type        = list(string)
   description = "List of app nacl egress cidr block "
-}
-
-variable "ingress_db_nacl_rule_no" {
-  type        = list(number)
-  description = "List of db nacl ingress rule no"
-}
-
-variable "ingress_db_nacl_action" {
-  type        = list(string)
-  description = "List of db nacl ingress action "
-}
-
-variable "ingress_db_nacl_from_port" {
-  type        = list(number)
-  description = "List of db nacl ingress from port "
-}
-
-variable "ingress_db_nacl_to_port" {
-  type        = list(number)
-  description = "List of db nacl ingress to port "
-}
-
-variable "ingress_db_nacl_protocol" {
-  type        = list(string)
-  description = "List of db nacl ingress protocol "
-}
-
-variable "ingress_db_nacl_cidr_block" {
-  type        = list(string)
-  description = "List of db nacl ingress cidr block "
-}
-
-variable "egress_db_nacl_rule_no" {
-  type        = list(number)
-  description = "List of db nacl egress rule no"
-}
-
-variable "egress_db_nacl_action" {
-  type        = list(string)
-  description = "List of db nacl egress action "
-}
-
-variable "egress_db_nacl_from_port" {
-  type        = list(number)
-  description = "List of db nacl egress from port "
-}
-
-variable "egress_db_nacl_to_port" {
-  type        = list(number)
-  description = "List of db nacl egress to port "
-}
-
-variable "egress_db_nacl_protocol" {
-  type        = list(string)
-  description = "List of db nacl egress protocol "
-}
-
-variable "egress_db_nacl_cidr_block" {
-  type        = list(string)
-  description = "List of db nacl egress cidr block "
 }

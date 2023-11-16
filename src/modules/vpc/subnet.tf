@@ -19,7 +19,7 @@ resource "aws_subnet" "public" {
 
 resource "aws_route_table_association" "public" {
   count          = length(aws_subnet.public)
-  subnet_id      = aws_subnet.public[*].id
+  subnet_id      = aws_subnet.public[count.index].id
   route_table_id = aws_route_table.public.id
 }
 
@@ -43,7 +43,7 @@ resource "aws_subnet" "app" {
 
 resource "aws_route_table_association" "app" {
   count          = length(aws_subnet.app)
-  subnet_id      = aws_subnet.app[*].id
+  subnet_id      = aws_subnet.app[count.index].id
   route_table_id = aws_route_table.app.id
 }
 
@@ -67,7 +67,7 @@ resource "aws_subnet" "db" {
 
 resource "aws_route_table_association" "db" {
   count          = length(aws_subnet.db)
-  subnet_id      = aws_subnet.db[*].id
+  subnet_id      = aws_subnet.db[count.index].id
   route_table_id = aws_route_table.db.id
 }
 
@@ -91,7 +91,7 @@ resource "aws_subnet" "management" {
 
 resource "aws_route_table_association" "management" {
   count          = length(aws_subnet.management)
-  subnet_id      = aws_subnet.management[*].id
+  subnet_id      = aws_subnet.management[count.index].id
   route_table_id = aws_route_table.management.id
 }
 
@@ -115,6 +115,6 @@ resource "aws_subnet" "platform" {
 
 resource "aws_route_table_association" "platform" {
   count          = length(aws_subnet.platform)
-  subnet_id      = aws_subnet.platform[*].id
+  subnet_id      = aws_subnet.platform[count.index].id
   route_table_id = aws_route_table.platform.id
 }
