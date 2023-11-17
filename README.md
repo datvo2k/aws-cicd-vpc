@@ -14,5 +14,3 @@
 ## Github Action
 - tfsec
 - tflint
-
-

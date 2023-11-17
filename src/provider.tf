@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    profile = "aws-dev"
+    # profile = "aws-dev"
     bucket  = "dev-terraform-33"
     region  = "us-east-1"
     key     = "backend.tfstate"
@@ -16,5 +16,5 @@ terraform {
 
 provider "aws" {
   region  = var.region
-  profile = "aws-dev"
+  # profile = "aws-dev"
 }
